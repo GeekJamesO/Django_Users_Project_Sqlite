@@ -1,0 +1,27 @@
+python manage.py makemigrations
+python manage.py migrate
+python manage.py shell
+
+from apps.user_login.models import *  
+User.objects.all()
+User.objects.last()
+
+aUser = User(first_name="Bob", last_name="Bobber", email_address="bob@bobbers.com", age=26)
+aUser.save()
+
+bUser = User(first_name="Chuck", last_name="Chuckie", email_address="chuck@chuckie", age=26)
+bUser.save()
+
+Users.objects.first()
+User.objects.all().order_by("first_name").  #Descending
+User.objects.all().order_by("-first_name"). #Ascending
+User.objects.get(id=3)
+
+updateUser = User.objects.get(id=3).
+updateUser.last_name="BBoBBers" 
+updateUser.save()
+
+User.objects.get(id=4).delete()
+
+
+quit()
